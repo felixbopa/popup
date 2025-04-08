@@ -2,20 +2,52 @@
 <html lang="es">
 <head>
   <meta charset="UTF-8">
-  <title>Ver Documento</title>
+  <title>PDFs Incrustados</title>
+  <style>
+    body {
+      text-align: center;
+      margin-top: 20px;
+    }
+    button {
+      padding: 10px 20px;
+      margin: 20px;
+      font-size: 16px;
+      cursor: pointer;
+      border: none;
+      background-color: #4CAF50;
+      color: white;
+      border-radius: 5px;
+    }
+    button:hover {
+      background-color: #45a049;
+    }
+    iframe {
+      width: 90%;
+      height: 600px;
+      border: 1px solid #ccc;
+    }
+  </style>
 </head>
-<body style="text-align: center; margin-top: 50px;">
-  <h2>Haz clic para abrir el documento</h2>
-  <button onclick="abrirPopup()">Abrir PDF</button>
+<body>
+  <h2>Selecciona un documento PDF</h2>
+
+  <!-- Botones para abrir los PDFs -->
+  <button onclick="cargarPDF('https://raw.githubusercontent.com/felixbopa/popup/main/01.01. MANUAL DEL EMPLEADO.pdf')">Abrir Documento 1</button>
+  <button onclick="cargarPDF('https://raw.githubusercontent.com/felixbopa/popup/main/JUSTIFICANTE DE ENTREGA-CARLOS GUSTAVO.pdf')">Abrir Documento 2</button>
+  <button onclick="cargarPDF('https://raw.githubusercontent.com/felixbopa/popup/main/Plano VIARIUM.pdf')">Abrir Documento 3</button>
+
+  <br><br>
+  <!-- Aquí se cargará el PDF seleccionado -->
+  <iframe id="pdfViewer" src="" style="display:none;"></iframe>
 
   <script>
-    function abrirPopup() {
-      window.open(
-        'https://viarium-my.sharepoint.com/:b:/g/personal/felix_bopa_viarium_es/EQwqPrTigbdPhDK6kXIIBgsBTtC2SAo1_KUCAlO7-_OYQw?e=gxijrh',
-        'popup',
-        'width=800,height=600'
-      );
+    function cargarPDF(url) {
+      // Muestra el iframe y carga el PDF
+      var iframe = document.getElementById('pdfViewer');
+      iframe.style.display = 'block';
+      iframe.src = url;
     }
   </script>
 </body>
 </html>
+
